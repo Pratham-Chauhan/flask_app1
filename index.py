@@ -61,5 +61,5 @@ def get_prices():
         data.append({'style_id': style_id, 'mrp': mrp, 'price': price})
     return jsonify(data)
 
-if __name__ == '__main__':
-    app.run('0.0.0.0', port=8080)
+# if __name__ == '__main__':
+#     app.run('0.0.0.0', port=8080)

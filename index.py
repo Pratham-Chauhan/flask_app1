@@ -30,8 +30,10 @@ headers = {
 
 
 def get_price(style_id):
+    s = rq.Session()
+
     url = f'https://www.myntra.com/{style_id}'  
-    res = rq.get(url, headers=headers)
+    res = s.get(url, headers=headers)
 
     print((res, style_id))
     soup = BeautifulSoup(res.text, 'html.parser')

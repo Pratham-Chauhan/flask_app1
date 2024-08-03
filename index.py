@@ -36,7 +36,7 @@ def get_price(style_id):
     print((res, style_id))
     soup = BeautifulSoup(res.text, 'html.parser')
     
-    # print('TEXT:', soup)
+    print('TEXT:', soup)
     script_text = next((s.get_text(strip=True) for s in soup.find_all("script") if 'pdpData' in s.text), None)
     if script_text:
         try:

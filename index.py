@@ -36,7 +36,7 @@ def get_price(style_id):
     print((res, style_id))
     soup = BeautifulSoup(res.text, 'html.parser')
     
-    print('TEXT:', soup)
+    # print('TEXT:', soup)
     script_text = next((s.get_text(strip=True) for s in soup.find_all("script") if 'pdpData' in s.text), None)
     if script_text:
         try:
@@ -47,7 +47,6 @@ def get_price(style_id):
             return mrp, price
         except (json.JSONDecodeError, KeyError) as e:
             print('error: ', e)
-
             pass
     # return 'OOS'
     return None, None
@@ -63,4 +62,4 @@ def get_prices():
     return jsonify(data)
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000)
+    app.run('0.0.0.0', port=8080)
